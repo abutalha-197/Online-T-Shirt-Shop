@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+<div class="row">
+    <div class="col-6">
+        <b>Bkash</b><img src="/media/b.svg" alt="" style="width: 50px;"><b>: 01733378378</b>
+        <br>
+        <br>
+        <b>Nagad</b><img src="/media/n.svg" alt="" style="width: 50px;"><b>: 01733378378</b>
+        <br>
+        <br>
+        <b>Rocket</b><img src="/media/r.png" alt="" style="width: 40px;"><b>: 01733378378</b>
+       
+
+    </div>
+    <div class="col-6">
+        <h3 style="color: #EC7063; font-weight: bold;">Give the transaction id !</h3>
+        <p>Give the more information!</p>
+
+        <form action="javascript:sendmail()" method="post">
+            
+                <div class="form-group form-inline">
+                    <input required style="width: 437px;"  type="text" class="form-control" name="fname" id="fname" placeholder="Product Name">
+                </div>
+
+                <div class="form-group form-inline">
+                    <input required type="text" class="form-control" id="pid" placeholder="Product Code">
+                    <input required type="text" class="form-control ml-2" id="bkash" placeholder="Bkash Number">
+                </div>
+                <div class="form-group">
+                    
+                    <textarea style="width: 82%;" class="form-control" rows="2" id="tid" placeholder="Transaction Id"></textarea>
+                  </div>
+            
+            <button type="submit" class="btn btn-md text-light" style="background-color: #EC7063; margin-bottom: 0px;">Submit</button>
+          </form>
+
+    </div>
+</div>
+
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+<script>  
+
+     function sendmail(){
+    
+			var name = $('#fname').val();
+           
+			var pid = $('#pid').val();
+            var bkash = $('#bkash').val();
+            var tid = $('#tid').val();
+
+			// var body = $('#body').val();
+
+			var Body='Product Name: '+name+' <br>PID: '+pid+'<br>Bkash Number: '+bkash+'<br>Trasaction Id: '+tid;
+			//console.log(name, phone, email, message);
+
+			Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+				To: 'abulkashemlukman@gmail.com',
+				From: "abulkashemlukman@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){
+					alert('Your mail has been send. Thank you for connecting.');
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+
+    
+{% endblock %}

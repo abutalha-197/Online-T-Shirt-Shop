@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class="row mt-5">
+    <div class="col-6">
+        <h2>About Us</h2>
+        <p>
+           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo voluptatem ipsam, omnis modi eius doloremque dolores! Iure atque nemo at eligendi ut ipsam, repellendus sint eum deserunt dolores iste explicabo amet culpa officia minus, eos quaerat ea beatae quidem id? Error porro inventore voluptatum quia obcaecati, laboriosam saepe debitis quam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque modi aspernatur quas officia distinctio sunt ex odio, quo eligendi, eos laudantium hic culpa iure consectetur? Dignissimos omnis doloremque reiciendis eaque cupiditate autem perferendis beatae. Facere, fugiat? Aut excepturi modi ipsa dolores, esse nihil repellendus consequuntur iste nobis quidem aliquam nisi.
+
+        </p>
+        <p id="demo"></p>
+        <button onclick="myFunction()"  class="btn btn-primary btn-lg" style="width: 250x; margin-bottom: 50px;">Learn more</button>
+
+        <script>
+            function myFunction() {
+              var x = document.getElementById("demo");
+              if (x.innerHTML === "") {
+                x.innerHTML = "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo voluptatem ipsam, omnis modi eius doloremque dolores! Iure atque nemo at eligendi ut ipsam, repellendus sint eum deserunt dolores iste explicabo amet culpa officia minus, eos quaerat ea beatae quidem id? Error porro inventore voluptatum quia obcaecati, laboriosam saepe debitis quam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque modi aspernatur quas officia distinctio sunt ex odio, quo eligendi, eos laudantium hic culpa iure consectetur? Dignissimos omnis doloremque reiciendis eaque cupiditate autem perferendis beatae. Facere, fugiat? Aut excepturi modi ipsa dolores, esse nihil repe</p>";
+              } else {
+                x.innerHTML = "";
+              }
+            }
+        </script>
+
+    </div>
+    <div class="col-6">
+        <img src="/media/about-us.jpg" alt="image" style=" width: 700px;">
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+

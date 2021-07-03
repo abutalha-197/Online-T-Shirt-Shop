@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class="row mt-5">
+    
+    <div class="col-6">
+        <h3 style="color: #EC7063; font-weight: bold;">Just say Hello !</h3>
+        <p>Let us know more about you!</p>
+
+        <form action="javascript:sendmail()" method="post">
+            
+                <div class="form-group">
+                    <input style="width: 437px;"  type="text" class="form-control" name="fname" id="fname" placeholder="Name">
+                    
+                </div>
+
+                <div class="form-group form-inline">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <input type="text" class="form-control ml-2" name="phone" id="phone" placeholder="Phone">
+                </div>
+                
+                    
+                <div class="form-group">
+                    
+                    <textarea style="width: 81%;" class="form-control" rows="5" id="msg" placeholder="Message"></textarea>
+                  </div>
+                  
+            
+            <button type="submit"  class="btn btn-md text-light" style="background-color: #EC7063; margin-bottom: 0px;">Submit</button>
+          </form>
+
+          
+    </div>
+    <div class="col-6">
+        <div style="margin-left: 290px;">
+            <h3 style="color: #EC7063; font-weight: bold;">Contact</h3>
+        <h3 style="color: #EC7063; font-weight: bold;">Information</h3>
+            <br>
+        <h6>14 Mojumdari street</h6>
+        <h6>Sylhet. 21004</h6>
+        <h6>Bangladesh</h6>
+        <br>
+        <h6><b>Email:</b> abutalha123@gmail.com</h6>
+        <h6><b>Call Us:</b> +8801733933859</h6>
+        <br>
+        <h3 style="color: #EC7063; font-weight: bold;">Follow Us</h3>
+
+        <div style="">
+           
+            <a href=""><i class="fab fa-facebook mr-3" style="font-size: 18px; color: ;"></i></a> 
+            <a href=""><i class="fab fa-twitter mr-3"style="font-size: 18px; color: ;"></i></a>
+            <a href=""><i class="fab fa-instagram mr-3"style="font-size: 18px; color: ;"></i></a>
+       
+           <a href=""><i class="fab fa-linkedin mr-3"style="font-size: 18px; color: ;"></i></a>
+          </div>
+
+
+        <p></p>
+        </div>
+        
+
+    </div>
+        
+   
+</div>
+
+  
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+<script>  
+
+     function sendmail(){
+    
+			var name = $('#fname').val();
+            var name1 = $('#lname').val();
+			var email = $('#email').val();
+            var phone = $('#phone').val();
+            var message = $('#msg').val();
+
+			// var body = $('#body').val();
+
+			var Body='Name: '+name+' <br>Email: '+email+'<br>Phone: '+phone+'<br>Message: '+message;
+			//console.log(name, phone, email, message);
+
+			Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+				To: 'abulkashemlukman@gmail.com',
+				From: "abulkashemlukman@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){
+					alert('Your mail has been send. Thank you for connecting.');
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+ 
+
+
+
+
+{% endblock %}
